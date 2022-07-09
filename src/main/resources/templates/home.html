@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+	</head>
+	<body>
+	
+		<div class="container">
+		
+			<div class="card mb-3" th:each="pergunta : ${perguntas}">
+				<th:block th:switch="${pergunta.status.name()}">
+					<div th:case="'RESPONDIDA'" class="card-header text-bg-success" th:text="${pergunta.usuario.nome}"></div>
+					<div th:case="'SEM_RESPOSTA'" class="card-header text-bg-danger " th:text="${pergunta.usuario.nome}"></div>
+				</th:block>
+  				
+  				<div class="card-body">
+  				
+    				<h5 class="card-title"></h5>
+    				<p class="card-text" th:text="${pergunta.descricao}"></p>
+    				
+    				<div class="card mb-3" th:each="resposta : ${pergunta.respostas}">
+  						<div class="card-body">
+    						<h6 class="card-title" th:text="${resposta.usuario.nome}"></h6>
+    						<p class="card-text" th:text="${resposta.descricao}"></p>
+  						</div>
+					</div>
+					
+  				</div>
+			</div>
+			
+		</div>
+		
+	</body>
+</html>

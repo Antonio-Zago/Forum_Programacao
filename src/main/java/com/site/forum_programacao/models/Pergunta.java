@@ -1,8 +1,9 @@
 package com.site.forum_programacao.models;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -36,8 +37,34 @@ public class Pergunta {
 	
 	@Enumerated(EnumType.STRING)
 	private StatusPergunta status;
-
 	
+	
+	private LocalDateTime dataPergunta;
+
+	private String titulo;
+	
+	
+	
+	public String getTitulo() {
+		return titulo;
+	}
+
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+
+	public LocalDateTime getDataPergunta() {
+		return dataPergunta;
+	}
+
+
+	public void setDataPergunta(LocalDateTime dataPergunta) {
+		this.dataPergunta = dataPergunta;
+	}
+
+
 	public StatusPergunta getStatus() {
 		return status;
 	}

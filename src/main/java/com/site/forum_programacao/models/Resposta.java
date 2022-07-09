@@ -1,5 +1,7 @@
 package com.site.forum_programacao.models;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,6 +25,19 @@ public class Resposta {
 	@ManyToOne
 	@JoinColumn(name = "idPergunta")
 	private Pergunta pergunta;
+
+	private LocalDateTime dataResposta;
+	
+	
+	
+	public LocalDateTime getDataResposta() {
+		return dataResposta;
+	}
+
+
+	public void setDataResposta(LocalDateTime dataResposta) {
+		this.dataResposta = dataResposta;
+	}
 
 
 	public Long getIdResposta() {

@@ -32,19 +32,32 @@
   				
   				<div class="card-body">
   				
-    				<h5 class="card-title"></h5>
+    				<h5 class="card-title" th:text="${pergunta.titulo}"></h5>
+    				<p class="card-text text-muted" th:text="${#temporals.format(pergunta.dataPergunta, 'dd/MM/yyyy HH:mm') }"></p>
     				<p class="card-text" th:text="${pergunta.descricao}"></p>
+    				
+    				
+    				
+    					
     				
     				<div class="hidden" th:id="'respostas-pergunta-' + ${pergunta.idPergunta}">
     					<div class="card mb-3" th:each="resposta : ${pergunta.respostas}" >
 	  						<div class="card-body">
 	    						<h6 class="card-title" th:text="${resposta.usuario.nome}"></h6>
+	    						<p class="card-text text-muted" th:text="${#temporals.format(resposta.dataResposta, 'dd/MM/yyyy HH:mm') }"></p>
 	    						<p class="card-text" th:text="${resposta.descricao}"></p>
 	  						</div>
 						</div>
     				</div>
     				
-    				<input  th:attr="onclick=|mostrar('respostas-pergunta-${pergunta.idPergunta}')|" class="btn btn-primary" type="button" value="Respostas"/>
+    				<input  th:attr="onclick=|mostrar('respostas-pergunta-${pergunta.idPergunta}')|" 
+    						class="btn btn-primary" 
+    						type="button" 
+    						th:value="'Respostas: ' + ${#lists.size(pergunta.respostas)}" 
+    						th:disabled="${#lists.isEmpty(pergunta.respostas)}" 
+    				/>
+    				
+    				
     				
 					
   				</div>

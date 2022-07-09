@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+	</head>
+	<body>	
+		<div class="container">
+		
+			
+				<form th:action="@{/login}" method="post">
+					<div class="form-group">
+						<label for="username">Usuário</label>
+						<input name="username"  class="form-control" placeholder="nome do usuario"/>
+					</div>
+					
+					<div class="form-group">
+						<label for="password">Senha</label>
+						<input type="password" name="password"  class="form-control" placeholder="Senha"/>
+					</div>
+					
+					<button class="btn btn-primary" type="submit">Login</button>
+						
+				</form>
+			
+		</div>
+	</body>
+</html>
